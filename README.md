@@ -14,7 +14,7 @@ A quantitative investment framework that combines **Network Science** with **Val
 
 ## **3. Quick Start**
 
-1. **Selection:** Identify 15-20 peripheral stocks via the Network notebook.
+1. **Selection:** Identify N peripheral stocks via the Network notebook.
 2. **Validation:** Run those stocks through the Value tool to filter for high-quality balance sheets.
 3. **Optimization:** Use the final intersection to build a diversified, low-contagion portfolio.
 
@@ -24,4 +24,4 @@ A quantitative investment framework that combines **Network Science** with **Val
 
 ---
 
-**Author:** [Cairo Henrique Vaz Cotrim]
+**Author:** Cairo Henrique Vaz Cotrim
