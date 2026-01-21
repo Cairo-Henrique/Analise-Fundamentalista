@@ -1,52 +1,27 @@
-# **Portfolio Selection and Optimization Algorithm via Network Theory and Efficient Frontier**
+# **Network-Value-Investing**
 
-This notebook implements an advanced portfolio construction strategy, utilizing topological graph filtering and centrality metrics to mitigate systemic risk within the stock market.
+A quantitative investment framework that combines **Network Science** with **Value Investing**.
 
----
+## **1. Methodology**
 
-## **1. Selection Methodology**
+* **Network Science:** Filters market noise using a **Planar Maximally Filtered Graph (PMFG)**. We select "Peripheral" assets—those with the lowest **Node Strength** to minimize systemic risk.
+* **Value Investing:** Screens the selected assets for profitability and solvency.
 
-This algorithm follows three fundamental stages:
+## **2. Notebooks**
 
-### **A. Topological Filtering (PMFG)**
+1. **`Portfolio_Optimization_with_PMFG_and_Sharpe.ipynb`**: Handles topological filtering, centrality analysis, and robust portfolio weighting (HRP/Max Sharpe).
+2. **`Value_Investing_Financial_indicators_Tool.ipynb`**: Performs multi-KPI scoring and intrinsic valuation using Benjamin Graham's principles.
 
-The raw correlation matrix is filtered using the **Planar Maximally Filtered Graph (PMFG)** algorithm. This technique extracts the "skeleton" of the market's strongest connections while maintaining graph planarity. This allows for the identification of sector clusters and essential connections that the raw matrix often obscures.
+## **3. Quick Start**
 
-### **B. Centrality Selection (Investing in the Periphery)**
+1. **Selection:** Identify 15-20 peripheral stocks via the Network notebook.
+2. **Validation:** Run those stocks through the Value tool to filter for high-quality balance sheets.
+3. **Optimization:** Use the final intersection to build a diversified, low-contagion portfolio.
 
-We use the **Node Strength** (Weighted Degree) metric as a centrality measure in relation to the network. The algorithm selects assets with the **lowest centrality**.
+## **Dependencies**
 
-* **Thesis:** "Central" assets (Hubs) carry high systemic risk and tend to collapse together during crises. "Peripheral" assets offer genuine diversification and protection against contagion.
-
-### **C. Robust Optimization**
-
-To avoid excessive concentration, we choose the max Sharpe portfolio via efficient frontier optimization to define final weights.
-
----
-
-## **2. Notebook Workflow**
-
-1. **Data Ingestion:** Download of B3 tickers via `yfinance`.
-2. **Filtering:** Construction of the PMFG graph and noise removal from the correlation matrix.
-3. **Network Analysis:** Calculation of centrality metrics and identification of "Core" and "Periphery."
-4. **Optimization:** Generation of Maximum Sharpe and Minimum Volatility portfolios.
-5. **Backtest:** Comparison of accumulated performance against **IBOVESPA** and **CDI**.
+`yfinance`, `pandas`, `networkx`, `PyPortfolioOpt`, `requests`, `matplotlib`, `numpy`, `seaborn`
 
 ---
 
-## **3. Libraries Used**
-
-* `PyPortfolioOpt`: For Efficient Frontier and HRP calculations.
-* `NetworkX`: For construction and topological analysis of the PMFG graph.
-* `yfinance`: For obtaining historical data.
-* `pandas` & `numpy`: For time-series processing.
-* `matplotlib` & `seaborn`: For data and network visualization.
-* `requests`: To access the Central Bank (BCB) API.
-
----
-
-### **How to Use**
-
-1. Execute the dependency installation cells.
-2. Define the analysis period in the parameters section.
-3. The final graph will display a comparison of R$ 1.00 invested in the strategy versus the benchmarks.
+**Author:** [Cairo Henrique Vaz Cotrim]
